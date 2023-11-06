@@ -18,13 +18,6 @@ type TapFitterTemplate struct {
 	writer                io.Writer
 }
 
-
-func (p *TapFitterTemplate) generateDockerfile() error {
-
-	// TODO: extract enough cmd.generate.dockerfile to trigger the alpha.action.generate_dockerfile based on template fields
-	return nil
-}
-
 func (p *TapFitterTemplate) GenerateDevfile() error {
 	if err := p.validateFlags(); err != nil {
 		return err
