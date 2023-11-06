@@ -47,9 +47,6 @@ func newRootCmd() (*cobra.Command, error) {
 			if err != nil {
 				return err
 			}
-			if err := p.generateDockerfile(); err != nil {
-				return err
-			}
 			if err := p.generateDevfile(); err != nil {
 				return err
 			}
