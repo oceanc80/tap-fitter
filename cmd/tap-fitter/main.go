@@ -5,9 +5,10 @@ import (
 	"net/http"
 	"os"
 	
-	"pkg/generation"
+	"github.com/release-engineering/tap-fitter/generation"
 
 	"github.com/operator-framework/operator-registry/alpha/template/composite"
+	"github.com/operator-framework/operator-registry/cmd/opm/internal/util"
 	"github.com/operator-framework/operator-registry/pkg/image/containerdregistry"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -46,7 +47,6 @@ func newRootCmd() (*cobra.Command, error) {
 			if err != nil {
 				return err
 			}
-
 			if err := p.generateDockerfile(); err != nil {
 				return err
 			}
