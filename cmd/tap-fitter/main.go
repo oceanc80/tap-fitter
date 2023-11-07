@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	
+	"github.com/release-engineering/tap-fitter/pkg/generation"
 
 	"github.com/operator-framework/operator-registry/alpha/template/composite"
 	"github.com/operator-framework/operator-registry/pkg/image/containerdregistry"
@@ -16,6 +18,7 @@ type TapFitterTemplate struct {
 	compositePath         string
 	catalogPath           string
 	compositeSpec         *composite.Template
+	writer                io.Writer
 }
 
 func newRootCmd() (*cobra.Command, error) {
@@ -41,10 +44,6 @@ func newRootCmd() (*cobra.Command, error) {
 			}
 			err := p.ingestComposite(cmd)
 			if err != nil {
-				return err
-			}
-
-			if err := p.generateDockerfile(); err != nil {
 				return err
 			}
 			if err := p.generateDevfile(); err != nil {
@@ -126,17 +125,5 @@ func (p *TapFitterTemplate) ingestComposite(cmd *cobra.Command) error {
 
 	p.compositeSpec = template
 
-	return nil
-}
-
-func (p *TapFitterTemplate) generateDockerfile() error {
-
-	// TODO: extract enough cmd.generate.dockerfile to trigger the alpha.action.generate_dockerfile based on template fields
-	return nil
-}
-
-func (p *TapFitterTemplate) generateDevfile() error {
-
-	// TODO: mimic enough cmd.generate.dockerfile to trigger the new alpha.action.generate_devfile based on template fields
 	return nil
 }
