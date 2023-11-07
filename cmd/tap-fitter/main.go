@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 	
-	"github.com/release-engineering/tap-fitter/generation"
+	"github.com/release-engineering/tap-fitter/pkg/generation"
 
 	"github.com/operator-framework/operator-registry/alpha/template/composite"
 	"github.com/operator-framework/operator-registry/cmd/opm/internal/util"
