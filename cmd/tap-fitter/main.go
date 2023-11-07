@@ -8,7 +8,6 @@ import (
 	"github.com/release-engineering/tap-fitter/pkg/generation"
 
 	"github.com/operator-framework/operator-registry/alpha/template/composite"
-	"github.com/operator-framework/operator-registry/cmd/opm/internal/util"
 	"github.com/operator-framework/operator-registry/pkg/image/containerdregistry"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
